@@ -1,0 +1,23 @@
+/* Custom styles for stock dashboard */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* AG Grid dark theme overrides */
+.ag-theme-alpine-dark {
+  --ag-background-color: #000;
+  --ag-header-background-color: #333;
+  --ag-odd-row-background-color: rgba(50, 50, 50, 0.1);
+  --ag-header-foreground-color: white;
+  --ag-foreground-color: white;
+  --ag-border-color: #444;
+}
+
+/* Chart container styles */
+.chart-container {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
