@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: alphaentropy-microservice
+  profiles:
+    active: dev
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      model: gpt-3.5-turbo
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+mongodb:
+  connection:
+    string: ${MONGODB_CONNECTION_STRING:mongodb://localhost:27017}
+  database:
+    name: ${MONGODB_DATABASE_NAME:alphaentropy}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.alphaentropy: DEBUG
+    org.springframework.data.mongodb: INFO

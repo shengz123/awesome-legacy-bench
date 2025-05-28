@@ -12,7 +12,8 @@
     <artifactId>store-common</artifactId>
 
     <properties>
-        <hbase.version>2.4.11</hbase.version>
+        <hbase.version>2.5.3</hbase.version>
+        <mongodb.version>4.11.1</mongodb.version>
     </properties>
 
     <dependencies>
@@ -71,6 +72,11 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>${mongodb.version}</version>
         </dependency>
     </dependencies>
 

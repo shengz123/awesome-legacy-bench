@@ -1,6 +1,5 @@
 package com.alphaentropy.load.driver;
 
-import com.alphaentropy.factor.infra.FactorCalDriver;
 import com.alphaentropy.processor.BasicProcessorDriver;
 import com.alphaentropy.tdx.TdxLoadDriver;
 import com.alphaentropy.web.WebLoadDriver;
@@ -30,8 +29,8 @@ public class LoadDriver {
     @Autowired
     private BasicProcessorDriver basicProcessorDriver;
 
-    @Autowired
-    private FactorCalDriver factorCalDriver;
+    // @Autowired
+    // private FactorCalDriver factorCalDriver;
 
     @PostConstruct
     private void init() throws Exception {
@@ -51,9 +50,8 @@ public class LoadDriver {
         tdxLoadDriver.routine();
         webLoadDriver.loadAllTime(symbols, day1);
         basicProcessorDriver.routine(symbols);
-        // run only when factor module is stable
-//        List<Date> allDates = tdxLoadDriver.getAllDatesSince(day1);
-//        factorCalDriver.loadAllHistory(symbols, allDates);
+        // List<Date> allDates = tdxLoadDriver.getAllDatesSince(day1);
+        // factorCalDriver.loadAllHistory(symbols, allDates);
     }
 
 }
