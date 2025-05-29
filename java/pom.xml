@@ -9,6 +9,8 @@
         <module>store-common</module>
         <module>web-loader</module>
         <module>tdx-loader</module>
+        <module>query</module>
+        <module>processor</module>
         <module>microservice</module>
         <module>functional-tests</module>
     </modules>

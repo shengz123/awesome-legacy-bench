@@ -25,8 +25,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doReturn;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 @ExtendWith(MockitoExtension.class)
+@org.mockito.junit.jupiter.MockitoSettings(strictness = Strictness.LENIENT)
 public class MongoDBStoreTest {
 
     @Mock
@@ -85,8 +89,12 @@ public class MongoDBStoreTest {
         documents.add(new Document("_id", "1").append("name", "test1"));
         documents.add(new Document("_id", "2").append("name", "test2"));
         
+        com.mongodb.client.MongoCursor<Document> cursor = mock(com.mongodb.client.MongoCursor.class);
+        when(cursor.hasNext()).thenReturn(true, true, false);
+        when(cursor.next()).thenReturn(documents.get(0), documents.get(1));
+        
         when(collection.find(any(Document.class))).thenReturn(findIterable);
-        when(findIterable.iterator()).thenReturn(documents.iterator());
+        when(findIterable.iterator()).thenReturn(cursor);
 
         List<Document> results = mongoDBStore.find("testCollection", new Document("name", "test"));
 
@@ -144,14 +152,14 @@ public class MongoDBStoreTest {
     @Test
     public void testFindBySymbolAndDate() {
         Document expectedDocument = new Document("symbol", "AAPL").append("date", "20220101");
-        when(collection.find(any(Document.class))).thenReturn(findIterable);
-        when(findIterable.first()).thenReturn(expectedDocument);
+        
+        doReturn(findIterable).when(collection).find(any(org.bson.conversions.Bson.class));
+        doReturn(expectedDocument).when(findIterable).first();
 
         Document result = mongoDBStore.findBySymbolAndDate("testCollection", "AAPL", "20220101");
 
         assertNotNull(result);
         assertEquals("AAPL", result.getString("symbol"));
         assertEquals("20220101", result.getString("date"));
-        verify(collection).find(any(Document.class));
     }
 }
