@@ -1,8 +1,0 @@
-frequency: quarterly
-
-payableSalary = #RefQ($BalanceRaw.payableSalary)
-prevPayableSalary = #RefQ($BalanceRaw.payableSalary, 4)
-deltaPayableSalary = payableSalary - prevPayableSalary
-totalAsset = #RefQ($BalanceRaw.totalAsset)
-
-out: deltaPayableSalaryOverDeltaTotalAsset = deltaPayableSalary / totalAsset
