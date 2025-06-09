@@ -2,7 +2,7 @@
 
 # Legacy Transformation Benchmark
 
-A comprehensive set of tasks for legacy system transformation across multiple platforms, which is used as the benchmark to evaluate various SWE agents.
+A comprehensive set of tasks for legacy system transformation across multiple platforms, used as the benchmark to evaluate various SWE agents.
 
 ## Java
 
