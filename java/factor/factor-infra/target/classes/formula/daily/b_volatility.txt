@@ -1,0 +1,20 @@
+dPnlPast5 = #PAST($$dPnl, 5)
+out: vol5 = dPnlPast5.stdev()
+
+dPnlPast10 = #PAST($$dPnl, 10)
+out: vol10 = dPnlPast10.stdev()
+
+dPnlPast20 = #PAST($$dPnl, 20)
+out: vol20 = dPnlPast20.stdev()
+
+dPnlPast30 = #PAST($$dPnl, 30)
+out: vol30 = dPnlPast30.stdev()
+
+dPnlPast60 = #PAST($$dPnl, 60)
+out: vol60 = dPnlPast60.stdev()
+
+dPnlPast120 = #PAST($$dPnl, 120)
+out: vol120 = dPnlPast120.stdev()
+
+dPnlPast250 = #PAST($$dPnl, 250)
+out: vol250 = dPnlPast250.stdev()

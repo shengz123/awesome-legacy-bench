@@ -1,0 +1,1 @@
+understand the file "Mortgage Stress Form.xlsm" using Excel MCP and re-engineer it into a React single page application

@@ -1,0 +1,33 @@
+frequency: quarterly
+
+# For 600519 MaoTai
+
+# Example for Annual
+# 2022 - 2 = 2020 year
+payableSalary = #Annual($BalanceRaw.payableSalary, 2) # 298113
+prevPayableSalary = #Annual($BalanceRaw.payableSalary, 3) # 244507
+deltaPayableSalary = payableSalary.subList(prevPayableSalary) # 53606
+totalAsset = #Annual($BalanceRaw.totalAsset)
+
+# expected value from 2019 - 2020 = 0.0025120455739033
+out: deltaPayableSalaryOverDeltaTotalAsset = deltaPayableSalary / totalAsset
+
+
+# Example for RefQ
+# 2022 q3 - 3*4 = 2019 q3
+advanceReceive = #RefQ($BalanceRaw.advanceReceive, 12) # 1125530
+# 2022 q3 - 4*4 = 2018 q3
+advanceReceivePrev = #RefQ($BalanceRaw.advanceReceive, 16) # 1116753
+deltaAdvanceReceive = advanceReceive - advanceReceivePrev # 8777
+
+totalLiability = #RefQ($BalanceRaw.totalLiability, 12) # 4116599
+# expected value: 0.0210682214791682
+out: deltaAdvanceReceiveOverTotalLiability = deltaAdvanceReceive / totalLiability
+
+# Example for Diff
+totalBizCashFlowNet1InQ3 = #Diff($CashFlowRaw.totalBizCashFlowNet1, 4) # 2021 q3 -> 3675230 - 2171947 = 1503283
+
+# Example for TTM
+# todo
+# Example for AccQ
+# todo

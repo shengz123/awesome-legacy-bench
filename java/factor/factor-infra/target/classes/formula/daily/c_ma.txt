@@ -1,0 +1,50 @@
+default: DailyPrice
+
+cp = #GET($close)
+AF = #GET($BackwardAdjustFactor.factor)
+adjCp = cp / AF
+
+cpAf5 = #PAIR($close, $BackwardAdjustFactor.factor, 5)
+adjCp5 = cpAf5.div()
+ma5 = adjCp5.avg()
+out: ma5diff = (adjCp - ma5) / adjCp
+
+cpAf10 = #PAIR($close, $BackwardAdjustFactor.factor, 10)
+adjCp10 = cpAf10.div()
+ma10 = adjCp10.avg()
+out: ma10diff = (adjCp - ma10) / adjCp
+
+cpAf20 = #PAIR($close, $BackwardAdjustFactor.factor, 20)
+adjCp20 = cpAf20.div()
+ma20 = adjCp20.avg()
+std20 = adjCp20.stdev()
+out: ma20zs = (adjCp - ma20) / std20
+out: ma20diff = (adjCp - ma20) / adjCp
+
+cpAf30 = #PAIR($close, $BackwardAdjustFactor.factor, 30)
+adjCp30 = cpAf30.div()
+ma30 = adjCp30.avg()
+std30 = adjCp30.stdev()
+out: ma30zs = (adjCp - ma30) / std30
+out: ma30diff = (adjCp - ma30) / adjCp
+
+cpAf60 = #PAIR($close, $BackwardAdjustFactor.factor, 60)
+adjCp60 = cpAf60.div()
+ma60 = adjCp60.avg()
+std60 = adjCp60.stdev()
+out: ma60zs = (adjCp - ma60) / std60
+out: ma60diff = (adjCp - ma60) / adjCp
+
+cpAf120 = #PAIR($close, $BackwardAdjustFactor.factor, 120)
+adjCp120 = cpAf120.div()
+ma120 = adjCp120.avg()
+std120 = adjCp120.stdev()
+out: ma120zs = (adjCp - ma120) / std120
+out: ma120diff = (adjCp - ma120) / adjCp
+
+cpAf250 = #PAIR($close, $BackwardAdjustFactor.factor, 250)
+adjCp250 = cpAf250.div()
+ma250 = adjCp250.avg()
+std250 = adjCp250.stdev()
+out: ma250zs = (adjCp - ma250) / std250
+out: ma250diff = (adjCp - ma250) / adjCp

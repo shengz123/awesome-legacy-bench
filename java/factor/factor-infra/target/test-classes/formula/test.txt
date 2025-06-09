@@ -1,0 +1,59 @@
+frequency: quarterly
+
+# For 600519 MaoTai
+
+# Example for Annual
+# 2022 - 2 = 2020 year
+# 298113
+payableSalary = #Annual($BalanceRaw.payableSalary, 2)
+# 244507
+prevPayableSalary = #Annual($BalanceRaw.payableSalary, 3)
+# 53606
+deltaPayableSalary = payableSalary - prevPayableSalary
+totalAsset = #Annual($BalanceRaw.totalAsset)
+
+# expected value from 2019 - 2020 = 0.0025120455739033
+out: deltaPayableSalaryOverDeltaTotalAsset = deltaPayableSalary / totalAsset
+
+
+# Example for RefQ
+# 2022 q3 - 3*4 = 2019 q3
+# 1125530
+advancedReceive = #RefQ($BalanceRaw.advancedReceive, 12)
+# 2022 q3 - 4*4 = 2018 q3
+# 1116753
+advancedReceivePrev = #RefQ($BalanceRaw.advancedReceive, 16)
+# 8777
+deltaAdvancedReceive = advancedReceive - advancedReceivePrev
+
+# 3172836
+totalLiability = #RefQ($BalanceRaw.totalLiability, 12)
+# expected value: 0.00276629488571108
+out: deltaAdvanceReceiveOverTotalLiability = deltaAdvanceReceive / totalLiability
+
+
+# mysql> select sale_received, report_date from cash_flow_raw where symbol = 600519 limit 9;
+# +----------------+-------------+
+# | sale_received  | report_date |
+# +----------------+-------------+
+# |  3148797.00000 | 2022-03-31  |
+# | 11932054.00000 | 2021-12-31  |
+# |  7943026.00000 | 2021-09-30  |
+# |  5026993.00000 | 2021-06-30  |
+# |  2230094.00000 | 2021-03-31  |
+# | 10702438.00000 | 2020-12-31  |
+# |  7134854.00000 | 2020-09-30  |
+# |  4644623.00000 | 2020-06-30  |
+# |  2186601.00000 | 2020-03-31  |
+# +----------------+-------------+
+
+# Example for Diff
+# 2021 q3 ->  7943026.00000 - 5026993.00000 = 2916033.0
+totalBizCashFlowNet1InQ3 = #Diff($CashFlowRaw.saleReceived, 4)
+
+# Example for TTM
+# Expected Value: 3148797.00000 + 11932054.00000 + 7943026.00000 + 5026993.00000 = 28050870.0
+testTTMOutput = #TTM($CashFlowRaw.saleReceived, 2)
+# Example for AccQ
+# Expected Value: 7943026.00000 + 5026993.00000 + 2230094.00000 = 15200113.0
+testAccQOutput = #AccQ($CashFlowRaw.saleReceived, 4)

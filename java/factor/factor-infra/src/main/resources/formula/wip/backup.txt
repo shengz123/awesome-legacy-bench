@@ -1,0 +1,97 @@
+totalBizRevenueQ = #GETQ($ProfitRaw.totalBizRevenue) - #GETQ($ProfitRaw.totalBizRevenue, -1)
+bizRevenueQ = #GETQ($ProfitRaw.bizRevenue) - #GETQ($ProfitRaw.bizRevenue, -1)
+totalBizCostQ = #Q($ProfitRaw.totalBizCost)
+bizCostQ = #Q($ProfitRaw.bizCost)
+
+saleExpenseQ = #Q($ProfitRaw.saleExpense)
+mgmtExpenseQ = #Q($ProfitRaw.mgmtExpense)
+fundingExpenseQ = #Q($ProfitRaw.fundingExpense)
+
+otherProfitQ = #Q($ProfitRaw.otherProfitQ)
+bizProfitQ = #Q($ProfitRaw.bizProfit)
+
+totalProfitQ = #Q($ProfitRaw.totalProfit)
+netProfitQ = #Q($ProfitRaw.netProfit)
+
+currencyQ = #Q($BalanceRaw.currency)
+finAssetForTradeQ = #Q($BalanceRaw.finAssetForTrade)
+derivedFinAssetQ = #Q($BalanceRaw.derivedFinAsset)
+receivableNoteQ = #Q($BalanceRaw.receivableNote)
+receivableQ = #Q($BalanceRaw.receivable)
+advancedPayQ = #Q($BalanceRaw.advancedPay)
+receivableOthersQ = #Q($BalanceRaw.receivableOthers)
+
+inventoryQ = #Q($BalanceRaw.inventory)
+
+finAssetForSaleQ = #Q($BalanceRaw.finAssetForSale)
+investHeldTillMatureQ = #Q($BalanceRaw.investHeldTillMature)
+receivableLongTermQ = #Q($BalanceRaw.receivableLongTerm)
+projectUnderConstructionQ = #Q($BalanceRaw.projectUnderConstruction)
+projectMaterialQ = #Q($BalanceRaw.projectMaterial)
+
+finLiabilityForTradeQ = #Q($BalanceRaw.finLiabilityForTrade)
+derivedFinLiabilityQ = #Q($BalanceRaw.derivedFinLiability)
+payableNoteQ = #Q($BalanceRaw.payableNote)
+payableQ = #Q($BalanceRaw.payable)
+advancedReceiveQ = #Q($BalanceRaw.advancedReceive)
+payableSalaryQ = #Q($BalanceRaw.payableSalary)
+advancedExpenseQ = #Q($BalanceRaw.advancedExpense)
+advancedLiqLiabilityQ = #Q($BalanceRaw.advancedLiqLiability)
+payableBondShortTermQ = #Q($BalanceRaw.payableBondShortTerm)
+nonLiqLiabilityMature1YQ = #Q($BalanceRaw.nonLiqLiabilityMature1Y)
+payableBondQ = #Q($BalanceRaw.payableBond)
+payableLongTermQ = #Q($BalanceRaw.payableLongTerm)
+
+saleReceivedQ = #Q($CashFlowRaw.saleReceived)
+totalBizCashFlowInQ = #Q($CashFlowRaw.totalBizCashFlowIn)
+
+productServicePaidQ = #Q($CashFlowRaw.productServicePaid)
+totalBizCashFlowOutQ = #Q($CashFlowRaw.totalBizCashFlowOut)
+totalBizCashFlowNetQ = #Q($CashFlowRaw.totalBizCashFlowNet)
+
+totalInvestCashFlowInQ = #Q($CashFlowRaw.totalInvestCashFlowIn)
+totalInvestCashFlowOutQ = #Q($CashFlowRaw.totalInvestCashFlowOut)
+totalInvestCashFlowNetQ = #Q($CashFlowRaw.totalInvestCashFlowNet)
+
+totalFundingCashFlowInQ = #Q($CashFlowRaw.totalFundingCashFlowIn)
+totalFundingCashFlowOutQ = #Q($CashFlowRaw.totalFundingCashFlowOut)
+totalFundingCashFlowNetQ = #Q($CashFlowRaw.totalFundingCashFlowNet)
+
+
+totalBizRevenueTtm = #SUM($$totalBizRevenueQ, 4)
+bizRevenueTtm = #SUM($$bizRevenueQ, 4)
+
+totalBizCostTtm = #SUM($$totalBizCostQ, 4)
+bizCostTtm = #SUM($$bizCostQ, 4)
+
+saleExpenseTtm = #SUM($$saleExpenseQ, 4)
+mgmtExpenseTtm = #SUM($$mgmtExpenseQ, 4)
+fundingExpenseTtm = #SUM($$fundingExpenseQ, 4)
+
+otherProfitTtm = #SUM($$otherProfitQ, 4)
+bizProfitTtm = #SUM($$bizProfitQ, 4)
+
+totalProfitTtm = #SUM($$totalProfitQ, 4)
+netProfitTtm = #SUM($$netProfitQ, 4)
+
+receivableNoteTtm = #SUM($$receivableNoteQ, 4)
+receivableTtm = #SUM($$receivableQ, 4)
+advancedPayTtm = #SUM($$advancedPayQ, 4)
+receivableOthersTtm = #SUM($$receivableOthersQ, 4)
+
+advancedReceiveTtm = #SUM($$advancedReceiveQ, 4)
+
+saleReceivedTtm = #SUM($$saleReceivedQ, 4)
+totalBizCashFlowInTtm = #SUM($$totalBizCashFlowInQ, 4)
+
+productServicePaidTtm = #SUM($$productServicePaidQ, 4)
+totalBizCashFlowOutTtm = #SUM($$totalBizCashFlowOutQ, 4)
+totalBizCashFlowNetTtm = #SUM($$totalBizCashFlowNetQ, 4)
+
+totalInvestCashFlowInTtm = #SUM($$totalInvestCashFlowInQ, 4)
+totalInvestCashFlowOutTtm = #SUM($$totalInvestCashFlowOutQ, 4)
+totalInvestCashFlowNetTtm = #SUM($$totalInvestCashFlowNetQ, 4)
+
+totalFundingCashFlowInTtm = #SUM($$totalFundingCashFlowInQ, 4)
+totalFundingCashFlowOutTtm = #SUM($$totalFundingCashFlowOutQ, 4)
+totalFundingCashFlowNetTtm = #SUM($$totalFundingCashFlowNetQ, 4)
