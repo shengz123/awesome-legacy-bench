@@ -1,2 +1,0 @@
-create 'factor', 'f'
-create 'factor_q', 'fq'
